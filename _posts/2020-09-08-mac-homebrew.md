@@ -14,6 +14,9 @@ toc: true
 ![mac-homebrew-img001]({{site.url}}/assets/images/mac-homebrew-img001.png)
 
 [homebrew 홈페이지](https://brew.sh/index_ko)에서 명령을 복사합니다.
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
 터미널에 복사한 명령을 실행합니다.
 
 ## Homebrew 활용하기

@@ -1,7 +1,7 @@
 ---
 title: "Git 기본명령어"
 categories: 
-  - git
+  - Git
 toc: true
 ---
 

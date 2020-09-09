@@ -73,3 +73,49 @@ $ git commit -a -m 'made other changes'
 새로운 커밋을 생성할 경우 testing 브랜치와 갈라지게 됩니다.
 
 ![git-branch-img005]({{site.url}}/assets/images/git-branch-img005.png)
+
+## 브랜치 관리
+
+```
+$ git brach
+  iss53
+* master
+  testing
+```
+
+* 기호가 붙어 있는 master 브랜치는 현재 Checkout해서 작업하는 브랜치를 나타냅니다.
+
+```
+$ git branch -v
+  iss53   93b412c fix javascript issue
+* master  7a98805 Merge branch 'iss53'
+  testing 782fd34 add scott to the author list in the readmes
+```
+
+-v 옵션은 마지막 커밋의 메시지도 함께 보여줍니다.
+
+```
+$ git branch --merged
+  iss53
+* master
+```
+
+—merged 옵션은 현재 브랜치 기준으로 merge 된 브랜치들을 보여줍니다.
+* 기호가 붙어있지 않은 브랜치는 삭제해도 되는 브랜치입니다.
+
+```
+$ git branch --no-merged
+  testing
+```
+
+반대로 현재 checkout한 브랜치에 merge하지 않은 브랜치를 살펴보려면 위 옵션을 사용하면 됩니다.
+
+**브랜치 이름 변경**
+```
+$ git branch -m [old_branch_name] [new_branch_name]
+```
+
+**브랜치 삭제**
+```
+git branch -d [branch_name]
+```

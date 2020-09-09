@@ -5,12 +5,10 @@ categories:
 toc: true
 ---
 
-## Homebrew란?
-
 홈브류는 Mac용 패키지 관리자입니다. OS패키지 관리자를 통해 프로그램을 관리할 수 있습니다.
 프로그램 관리를 터미널로 완전히 제어할 수 있어서 컴퓨터를 깔끔하게 관리할 수 있습니다.
 
-## Homebrew 설치
+# Homebrew 설치
 ![mac-homebrew-img001]({{site.url}}/assets/images/mac-homebrew-img001.png)
 
 [homebrew 홈페이지](https://brew.sh/index_ko)에서 명령을 복사합니다.
@@ -19,14 +17,14 @@ toc: true
 ```
 터미널에 복사한 명령을 실행합니다.
 
-## Homebrew 활용하기
+# Homebrew 활용하기
 
 homebrew를 사용하여 **cask** 패키지를 설치해보겠습니다.
 
 **cask**는 Safari, Chrome, Word 등과 같이 그래픽을 통해 작업하는 
 프로그램을 설치할 수 있게 해주는 패키지입니다.
 
-### 패키지 설치
+## 패키지 설치
 
 ```
 brew install cask
@@ -38,13 +36,13 @@ brew list
 ```
 위 명령어를 통해 설치된 패키지를 확인할 수 있습니다.
 
-### 패키지 삭제
+## 패키지 삭제
 
 ```
 brew uninstall cask
 ```
 
-## 자주 사용하는 명령 ##
+# 자주 사용하는 명령 #
 brew ~ : 커맨드 라인 프로그램 (c, java, python 같은..)
 
 brew cask ~ : GUI 프로그램 (Safari, Chrome, Word 같은..)

@@ -7,7 +7,7 @@ toc: true
 
 코드를 통째로 복사하고 나서 원래 코드와 상과없이 독립적으로 개발을 진행할 수 있는데, 이렇게 독립적으로 개발하는 것을 브랜치라고 합니다.
 
-## 브랜치란 무엇인가
+# 브랜치란 무엇인가
 
 커밋을 하게되면 Git은 현 Staging Area에 있는 데이터의 스냅샷에 대한 포인터, 저자나 커밋 메시지 같은 메타데이터, 이전 커밋에 대한 포인터 등을 포함하는 커밋 객체(커밋 Object)를 저장합니다.
 
@@ -21,7 +21,7 @@ toc: true
 
 master 브랜치는 git init 명령으로 초기화 할 때 자동으로 생성됩니다.
 
-## 새 브랜치 생성하기
+# 새 브랜치 생성하기
 
 ```
 $ git branch testing
@@ -34,7 +34,7 @@ $ git branch testing
 Git은 'HEAD'라는 특수한 포인터를 통해 지금 작업중인 브랜치가 무엇인지 파악합니다.
 위 사진을 보면 testing이라는 브랜치는 생성됐지만 여전히 작업브랜치는 master입니다.
 
-## 브랜치 이동하기
+# 브랜치 이동하기
 
 ```
 $ git checkout testing
@@ -74,7 +74,7 @@ $ git commit -a -m 'made other changes'
 
 ![git-branch-img005]({{site.url}}/assets/images/git-branch-img005.png)
 
-## 브랜치 관리
+# 브랜치 관리
 
 ```
 $ git brach

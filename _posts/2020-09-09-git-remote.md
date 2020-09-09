@@ -5,7 +5,7 @@ categories:
 toc: true
 ---
 
-## Remote Branch
+# Remote Branch
 
 리모트 브랜치는 단순히 리모트 서버에 있는 브랜치를 의미합니다.
 
@@ -17,7 +17,7 @@ toc: true
 
 ![git-remote-img001]({{site.url}}/assets/images/git-remote-img001.png)
 
-### Remote Branch 활용하기
+## Remote Branch 활용하기
 
 로컬 저장소에서 어떤 작업을 하고 있는데 동시에 다른 팀원이 [git.ourcompany.com](http://git.ourcompany.com) 서버에 Push하고 master 브랜치를 업데이트합니다. 그러면 이제 팀원간의 히스토리는 서로 달라집니다.
 
@@ -31,7 +31,7 @@ toc: true
 
 ![git-remote-img003]({{site.url}}/assets/images/git-remote-img003.png)
 
-### Push하기
+## Push하기
 
 로컬의 브랜치를 서버로 전송하기 위해 push 명령어를 사용합니다.
 
@@ -41,7 +41,7 @@ $ git push origin serverfix
 
 serverfix 브랜치를 origin 리모트에 push합니다.
 
-### Pull하기
+## Pull하기
 
 pull 명령은 사실상 fetch한 후에 merge를 자동으로 해준것이라 할수 있습니다.
 
@@ -49,7 +49,7 @@ pull 명령은 사실상 fetch한 후에 merge를 자동으로 해준것이라 �
 $ git pull 
 ```
 
-### 브랜치 추적하기(Upstream Branch)
+## 브랜치 추적하기(Upstream Branch)
 
 리모트 트래킹 브랜치를 로컬 브랜치로 checkout 하면 자동으로 **트래킹 브랜치** 가 만들어집니다.
 (트래킹 하는 대상 브랜치를 **Upstream 브랜치** 라고 부릅니다.)

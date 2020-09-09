@@ -5,16 +5,16 @@ categories:
 toc: true
 ---
 
-## 1. **기존 Directory를 Git 저장소로 만들기**
+# 기존 Directory를 Git 저장소로 만들기
 
-```bash
+```
 $ git init
 ```
 
 - 이 명령은 .git이라는 하위 디렉터리를 만든다.
 - .git 디렉터리에는 저장소에 필요한 뼈대 파일(skeleton)이 들어있다.
 
-```bash
+```
 $ git add *.c
 $ git add LICENSE
 $ git commit -m 'initial project version' 
@@ -23,7 +23,7 @@ $ git commit -m 'initial project version'
 - Git이 파일을 관리하게 하려면 저장소에 파일을 추가하고 커밋해야한다.
 - git add 명령으로 파일을 추가하고 git commit 명령으로 커밋한다.
 
-## 2. 수정하고 (로컬) 저장소에 저장하기
+# 수정하고 (로컬) 저장소에 저장하기
 
 ![github-basic-cmd-img001]({{site.url}}/assets/images/github-basic-cmd-img001.png)
 
@@ -35,9 +35,9 @@ $ git commit -m 'initial project version'
   - Untracked(관리대상이 아님)
     - 나머지 모든 파일
 
-### **파일의 상태 확인하기**
+## 파일의 상태 확인하기
 
-```bash
+```
 $ git status
 On branch master
 nothing to commit, working directory clean
@@ -45,7 +45,7 @@ nothing to commit, working directory clean
 
 - 위의 내용은 파일을 하나도 수정하지 않았다는 것을 말해준다.
 
-```bash
+```
 $ echo 'My Project' > README
 $ git status
 On branch master
@@ -59,9 +59,9 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 - README 파일을 새로 생성할 경우 Untracked 상태로 추가된다.
 
-### **파일을 새로 추적하기**
+## 파일을 새로 추적하기
 
-```bash
+```
 $ git add README
 $ git status
 On branch master
@@ -76,9 +76,9 @@ Changes to be committed:
 
 (아래부터 코드의 실행 결과를 간단히 표시하겠습니다.)
 
-### **Modifed 상태의 파일을 Stage하기**
+## Modifed 상태의 파일을 Stage하기
 
-```bash
+```
 $ git status
 Changes to be committed:
 		new file:   README
@@ -92,7 +92,7 @@ Changes not staged for commit:
 - 이것은 수정한 파일이 Tracked 상태이지만 아직 Staged 상태는 아니라는 것이다.
 - Staged 상태로 만들려면 git add 명령어를 사용해야한다.
 
-```bash
+```
 $ git add MODIFIEDFILE.js
 $ git status
 Changes to be committed:
@@ -103,7 +103,7 @@ Changes to be committed:
 - 두 파일 모두 Staged 상태이므로 다음 커밋에 포함된다.
 - 만약 위 상태에서 MODIFIEDFILE.js를 다시 수정하면 어떤 상태가 될까??
 
-```bash
+```
 $ vim MODIFIEDFILE.js
 $ git status
 On branch master
@@ -119,9 +119,9 @@ Changes not staged for commit:
 - git add 명령을 실행하면 Git은 파일을 바로 Staged 상태로 만든다.
 - 지금 이 시점에서 커밋을 하면 마지막으로 수정한 버전으로 커밋되는 것이 아니라 마지막으로 git add 명령을 실행했을 때의 버전이 커밋된다.
 
-### **파일 상태를 짤막하게 확인하기**
+## 파일 상태를 짤막하게 확인하기
 
-```bash
+```
 $ git status -s
  M README
 MM Rakefile
@@ -142,9 +142,9 @@ M  lib/simplelegit.rb
 
   MM : Rakefile 파일을 변경하고 Staged 상태로 추가한 후 다시 내용을 변경해서 Staged이면서 Unstaged 상태인 파일이다.
 
-### **파일 무시하기**
+## 파일 무시하기
 
-```bash
+```
 $ cat .gitignore
 *.[oa]
 *~
@@ -153,9 +153,9 @@ $ cat .gitignore
 - 어떤 파일은 Git이 관리할 필요가 없다. (보통 로그파일이나. 로컬 설정파일들..) 그런 파일을 무시하려면                .gitignore 파일을 만들고 그 안에 무시할 파일 패턴을 적는다.
 - [**.gitignore 예제 확인 사이트**](https://github.com/github/gitignore)
 
-### **변경사항 커밋하기**
+## 변경사항 커밋하기
 
-```bash
+```
 $ git commit
 ```
 
@@ -163,17 +163,17 @@ $ git commit
 - Git은 생성하거나 수정하고 나서 git add 명령으로 추가하지 않은 파일은 커밋하지 않는다.
 - -m 옵션을 사용하면 커밋할 때 코멘트를 달 수 있다.
 
-### **Staging Area 생략하기**
+## Staging Area 생략하기
 
-```bash
+```
 $ git commit -a -m "add and commit"
 ```
 
 - -a 옵션을 사용하면 Git은 Tracked 상태의 파일을 자동으로 Staging Area에 넣는다.
 
-### **파일 삭제하기**
+## 파일 삭제하기
 
-```bash
+```
 $ rm grit.gemspec
 $ git status
 On brach master
@@ -184,7 +184,7 @@ Changes not staged for commit:
 - Git에서 파일을 제거하려면 git rm 명령으로 Tracked 상태의 파일을 삭제한 후(정확하게는 Staging area에서 삭제하는 것) 커밋해야한다. 이 명령은 working directory에 있는 파일도 삭제하기 때문에 실제 파일도 지워진다.
 - Git 명령을 사용하지 않고 단순히 working directory에서 파일을 삭제하고 git status 명령으로 상태를 확인하면 위와 같이 Unstaged 상태라고 표시한다.
 
-```bash
+```
 $ git rm grit.gemspec
 rm 'grit.gemspec'
 $ git status
@@ -197,7 +197,7 @@ Changes to be committed:
 - 커밋하면 파일은 삭제되고 Git은 더이상 추적하지않는다.
 - -f 옵션을 사용하면 강제 삭제가 가능하다.(ex. 수정한 파일을 Index에 추가했을 경우)
 
-```bash
+```
 $ git rm --cached README
 ```
 
@@ -205,22 +205,22 @@ $ git rm --cached README
 - 이것은 .gitignore 파일에 추가하는 것을 빼먹었거나 대용량 로그 파일 등을 실수로 추가했을 때 유용하다.
 - 
 
-### **파일 이름 변경하기**
+## 파일 이름 변경하기
 
-```bash
+```
 $ git mv file_old file_new
 ```
 
-## 3. 되돌리기
+# 되돌리기
 
-```bash
+```
 $ git commit --amend
 ```
 
 - 완료한 커밋을 수정해야 할 때 사용한다. (너무 일찍 커밋했거나 어떤 파일을 빼먹었을때, 커밋 메시지를 잘못 적었을 때)
 - 이 명령은 Staging Area를 사용하여 커밋한다. 커밋 후 바로 이 명령어를 실행하면 방금 전에 한 커밋과 모든것이 같고, 커밋 메시지만 수정한다.
 
-```bash
+```
 $ git commit -m 'file commit'
 $ git add forgotten_file
 $ git commit --amend
@@ -230,18 +230,18 @@ $ git commit --amend
 - 여기서 실행한 명령어 3개는 모두 하나의 커밋으로 기록된다.
 - 두 번째 커밋은 첫 번째 커밋을 덮어쓴다.
 
-### **파일 상태를 Unstage로 변경하기**
+## 파일 상태를 Unstage로 변경하기
 
-```bash
+```
 $ git reset HEAD MODIFIEDFILE.js
 ```
 
 - 실수로 git add * 명령어를 사용하여 따로 커밋하려는 파일까지 Staging Area로 넘어갔다면 위 명령어를 사용하면된다.
 - git reset 명령을 —hard 옵션과 함께 사용하면 working directory 파일까지 수정되기에 조심해야한다.
 
-### **Modified 파일 되돌리기**
+## Modified 파일 되돌리기
 
-```bash
+```
 $ git status
 Changes not staged for commit:
 		modified:   MODIFIEDFILE.js
@@ -255,14 +255,14 @@ Changes not staged for commit:
 - MODIFIEDFILE.js 파일을 수정하고 나서 최근 커밋된 버전으로 되돌리는 방법이다.
 - 위 명령어는 원래 파일로 덮어썼기 때문에 수정한 내용이 전부 사라진다. 때문에 꼭 필요할 때만 사용해야한다.
 
-## 4. 리모트 저장소
+# 리모트 저장소
 
 - 리모트 저장소는 인터넷이나 네트워크 어딘가에 있는 저장소를 말한다.
 - 간단히 말해서 리모트 저장소를 관리하면서 데이터를 거기에 Push하고 Pull 하는 것이다.
 
-### **리모트 저장소 확인하기**
+## 리모트 저장소 확인하기
 
-```bash
+```
 $ git clone https://github.com/schacon/ticgit
 ...
 $ cd ticgit
@@ -274,9 +274,9 @@ origin
 - 저장소를 Clone 하면 origin이라는 리모트 저장소가 자동으로 등록되기 때문에 origin이라는 이름을 볼 수 있다.
 - -v 옵션을 사용하면 단축이름과 URL을 함께 볼 수 있다.
 
-### **리모트 저장소 추가하기**
+## 리모트 저장소 추가하기
 
-```bash
+```
 $ git remote
 origin
 $ git remote add pb https://github.com/paulboone/ticgit
@@ -287,7 +287,7 @@ pb
 
 - 로컬 저장소에는 없지만 Paul의 저장소에 있는 것을 가져오려면 아래와 같이 실행한다.
 
-```bash
+```
 $ git fetch [remote-name]
 ```
 
@@ -295,7 +295,7 @@ $ git fetch [remote-name]
 - git fetch 명령은 리모트 저장소의 데이터를 모두 로컬로 가져오지만, 자동으로 Merge하지 않는다.
 - 때문에 수동 Merge 필요
 
-### **리모트 저장소에 Push하기**
+## 리모트 저장소에 Push하기
 
 ```jsx
 $ git push origin master

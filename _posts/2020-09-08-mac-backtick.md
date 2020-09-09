@@ -5,13 +5,13 @@ categories:
 toc: true
 ---
 
-## backtick 설정 ##
+# backtick 설정 ##
 
 윈도우에서는 키보드의 숫자키 1 옆에 \`(backtick)이 있지만 
 mac은 ₩(원화)표시가 타이핑 됩니다.
 \`(backtick)은 코드나 md파일에도 자주 사용되므로 ₩(원화) -> \`(backtick) 로 바꿔보겠습니다.
 
-## 설정방법 ##
+# 설정방법 ##
 
 ```
 cd ~/Library/

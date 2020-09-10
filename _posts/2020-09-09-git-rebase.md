@@ -1,28 +1,47 @@
-### 5. Reabase하기
+---
+title: "Git Rebase"
+categories: 
+  - Git
+toc: true
+---
 
-- Git에서 브랜치에서 다른 브랜치로 합치는 방법은 두 가지다.
-- 하나는 Merge이고 다른 하나는 Rebase이다.
+# Rebase하기
 
-**Rebase의 기초**
+Git에서 브랜치를 다른 브랜치로 합치는 방법은 두 가지입니다.
+- Merge
+- Rebase
 
-![Git%20%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5%201f85e910c6154b5689be747a4c50d7ea/Untitled%2013.png](Git%20%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5%201f85e910c6154b5689be747a4c50d7ea/Untitled%2013.png)
+## Rebase와 Merge의 차이
 
-- 위 브랜치를 합치는 방법은 merge 명령을 사용하는 것이다. merge 명령을 사용하면 3-way Merge로 새로운 커밋을 만들어낸다.
+![git-rebase-img001]({{site.url}}/assets/images/git-rebase-img001.png)
 
-![Git%20%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5%201f85e910c6154b5689be747a4c50d7ea/Untitled%2014.png](Git%20%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5%201f85e910c6154b5689be747a4c50d7ea/Untitled%2014.png)
+위와 같은 브랜치가 있다고 할 때 Merge로 합쳤을 때와 Rebase로 합쳤을 때를 알아보겠습니다.
 
-- rebase 명령은 일단 두 브랜치가 나뉘기 전인 공통 커밋으로 이동하고 나서 그 커밋부터 지금 Checkout한 브랜치가 가리키는 커밋까지 diff를 차례로 만들어 어딘가에 임시로 저장해 놓는다. Rebase할 브랜치가 합칠 브랜치가 가리키는 커밋을 가리키게 하고 아가 저장해 놓았던 변경사항을 차례대로 적용한다.
+### Git Merge 결과
 
-![Git%20%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5%201f85e910c6154b5689be747a4c50d7ea/Untitled%2015.png](Git%20%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5%201f85e910c6154b5689be747a4c50d7ea/Untitled%2015.png)
+![git-rebase-img002]({{site.url}}/assets/images/git-rebase-img002.png)
 
-- 그러고 나서 master 브랜치를 Fast-forward한다.
+merge 명령을 사용하면 3-way Merge로 새로운 커밋을 만들어냅니다.
 
-![Git%20%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5%201f85e910c6154b5689be747a4c50d7ea/Untitled%2016.png](Git%20%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5%201f85e910c6154b5689be747a4c50d7ea/Untitled%2016.png)
+### Git Rebase 결과
 
-- C4' 기준으로 보면 사실상 merge 명령과 결과적으로 다른게 없다. 하지만 rebase가 좀 더 깨끗한 히스토리를 만든다.
-- Rebase한 브랜치의 Log를 살펴보면 히스토리가 선형이다.
+**rebase** 명령은 아래와 같은 과정으로 진행됩니다.
 
-**Rebase 활용**
+![git-rebase-img003]({{site.url}}/assets/images/git-rebase-img003.png)
+
+1. 두 브랜치가 나뉘기 전인 공통 커밋으로 이동한다.
+2. 이동한 커밋부터 지금 Checkout한 브랜치가 가리키는 커밋까지 diff를 차례로 만들어 어딘가에 임시로 저장해 놓는다.
+3. Rebase할 브랜치(**experiment**)가 합칠 브랜치의 커밋(**C4'**)을 가리키게 하고 아까 저장해 놓았던 변경사항을 차례대로 적용한다.
+
+![git-rebase-img004]({{site.url}}/assets/images/git-rebase-img004.png)
+
+마지막으로 master 브랜치를 Fast-forward 합니다.
+
+병합된 브랜치 커밋을 기준으로 보면 사실상 merge 명령과 결과적으로 다른게 없습니다.
+하지만 rebase가 좀 더 깨끗한 히스토리를 만듭니다.
+**Rebase한 브랜치의 Log를 살펴보면 히스토리가 선형입니다.**
+
+## Rebase 활용
 
 - Rebase는 단순히 브랜치를 합치는 것만 아니라 다른 용도로도 사용할 수 있다. server 브랜치를 만들어서 서버 기능을 추가하고 그 브랜치에서 다시 client 브랜치를 만들어 클라이언트 기능을 추가한다. 마지막으로 server 브랜치로 돌아가서 몇 가지 기능을 더 추가한다.
 

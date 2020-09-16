@@ -48,7 +48,7 @@ $ git checkout testing
 $ vim test.rb
 $ git commit -a -m 'made a change'
 ```
-커밋으 할 경우 testing 브랜치는 새로운 커밋을 가리키고
+커밋을 할 경우 testing 브랜치는 새로운 커밋을 가리키고
 master는 여전히 f30ab 커밋을 가리킵니다.
 
 

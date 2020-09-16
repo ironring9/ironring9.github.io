@@ -52,6 +52,122 @@ toc: true
 
 # 연결 리스트 구현
 
-사실 자료구조를 Javascript로 구현하는 것도 좀 웃기긴 하지만 나름 재밌을 것 같아 도전해 봅니다.
+자료구조는 보통 C언어로 구현하지만 C언어로는 학부생 때 이미 해봤고 Javascript로 구현해보는것도 나름 재밌을 것 같아 도전해 봅니다.
 
 [LinkedList 소스](https://github.com/ironring9/data_structure_by_js/blob/master/LinkedList.js)
+
+```JSX
+function Node (data) {
+    this.data = data;
+    this.nextNode = null;
+}
+
+function LinkedList () {
+    this.length = 0;
+    this.head = null;
+}
+```
+
+Node와 LinkedList는 위와 같이 구현했습니다.
+
+우선 Node는 data와 다음 node를 가리키는 nextNode를 프로퍼티로 갖고있습니다.  
+LinkedList는 현재 list의 길이와 시작 node를 가리키는 head를 프로퍼티로 갖습니다.
+
+## 추가
+```JSX
+LinkedList.prototype.add = function (data) {
+    var node = new Node(data);
+    var current = this.head;
+    if (!current) {
+        this.head = node;
+    } else {
+        while (current.nextNode) {
+            current = current.nextNode;
+        }
+        current.nextNode = node;
+    }
+
+    this.length++;
+}
+```
+
+- arguments로 넘어온 data를 사용해서 Node 객체를 생성합니다.
+- 연결리스트의 head가 null일 경우 비어있다는 의미이므로 this.head에 바로 노드를 추가합니다.
+- 연결리스트가 비어있지 않을경우 마지막까지 탐색 후 노드를 추가합니다.
+
+## 삭제
+```JSX
+LinkedList.prototype.remove = function (index) {
+    var current = this.head;
+    var currentIndex = 0;
+    if (!current) return;
+
+    if (index == 0) {
+        var node = this.head;
+        this.head = node.nextNode;
+        delete node;
+    } else {
+        while (crrentIndex < index) {
+            current = current.nextNode;
+            currentIndex++;
+        }
+
+        var node = current.nextNode;
+        current.nextNode = node.nextNode;
+        delete node;
+    }
+
+    this.length--;
+}
+```
+
+- index가 0일 경우 this.head에 this.head가 가리키는 다음 노드(nextNode)를 가리키게 하고 현재 노드는 제거한다.
+- index가 0이 아닐 경우 대상 index 전까지 탐색
+- 삭제 대상 노드의 다음노드를 이전노드와 연결한다.
+- 삭제 대상 노드 메모리 해제
+
+## 탐색
+```JSX
+LinkedList.prototype.get = function (index) {
+    var current = this.head;
+    var currentIndex = 0;
+
+    while (currentIndex <= index) {
+        current = current.nextNode;
+        currentIndex++;
+    }
+
+    return current.data;
+}
+```
+
+- head 부터 해당 index까지 순차적으로 탐색한다. 시간 복잡도: O(n) 
+
+## 삽입
+```JSX
+LinkedList.prototype.insert = function (data, index) {
+    var node = new Node(data);
+    var current = this.head;
+    var currentIndex = 0;
+
+    if (index == 0) {
+        node.nextNode = this.head;
+        this.head = node;
+    } else {
+        while (currentIndex < index) {
+            current = current.nextNode;
+            currentIndex++;
+        }
+
+        node.nextNode = current.nextNode;
+        current.nextNode = node;
+    }
+
+    this.length++;
+}
+```
+
+- index가 0일 경우 새로 생성한 노드의 nextNode를 head로 할당하고 head를 새로 생성한 노드로 할당.
+- index가 0이 아닐 경우 대상 index 전까지 탐색한다.
+- 새로 생성한 노드(node)의 nextNode를 탐색한 노드(current)의 nextNode로 할당한다.
+- current의 nextNode를 node로 할당한다.

@@ -56,7 +56,7 @@ toc: true
 
 [LinkedList 소스](https://github.com/ironring9/data_structure_by_js/blob/master/LinkedList.js)
 
-```JSX
+```js
 function Node (data) {
     this.data = data;
     this.nextNode = null;
@@ -74,7 +74,7 @@ Node와 LinkedList는 위와 같이 구현했습니다.
 LinkedList는 현재 list의 길이와 시작 node를 가리키는 head를 프로퍼티로 갖습니다.
 
 ## 추가
-```JSX
+```js
 LinkedList.prototype.add = function (data) {
     var node = new Node(data);
     var current = this.head;
@@ -96,7 +96,7 @@ LinkedList.prototype.add = function (data) {
 - 연결리스트가 비어있지 않을경우 마지막까지 탐색 후 노드를 추가합니다.
 
 ## 삭제
-```JSX
+```js
 LinkedList.prototype.remove = function (index) {
     var current = this.head;
     var currentIndex = 0;
@@ -127,7 +127,7 @@ LinkedList.prototype.remove = function (index) {
 - 삭제 대상 노드 메모리 해제
 
 ## 탐색
-```JSX
+```js
 LinkedList.prototype.get = function (index) {
     var current = this.head;
     var currentIndex = 0;
@@ -144,7 +144,7 @@ LinkedList.prototype.get = function (index) {
 - head 부터 해당 index까지 순차적으로 탐색한다. 시간 복잡도: O(n) 
 
 ## 삽입
-```JSX
+```js
 LinkedList.prototype.insert = function (data, index) {
     var node = new Node(data);
     var current = this.head;

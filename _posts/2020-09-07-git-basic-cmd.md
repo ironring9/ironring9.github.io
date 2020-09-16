@@ -297,7 +297,7 @@ $ git fetch [remote-name]
 
 ## 리모트 저장소에 Push하기
 
-```jsx
+```
 $ git push origin master
 ```
 

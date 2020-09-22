@@ -22,4 +22,4 @@ toc: true
 
 # 구현
 
-[선택 소스](https://github.com/ironring9/data_structure_by_js/blob/master/InsertionSort.js)
+[삽입정렬 소스](https://github.com/ironring9/data_structure_by_js/blob/master/InsertionSort.js)

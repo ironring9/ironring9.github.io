@@ -16,7 +16,7 @@ toc: true
 2. 기준 요소의 값과 비교해서 크면 오른쪽에 작으면 왼쪽의 자기자리에 삽입한다.
 3. 리스트가 모두 정렬될 때 까지 1,2 단계를 반복한다.
 
-![algorithm-insertionSort-img001]({{site.url}}/assets/images/algorithm-insertionSort-img001.png)
+![algorithm-insertionSort-img001]({{site.url}}/assets/images/algorithm-insertionSort-img001.png)  
 
 **선택정렬의 시간복잡도는 O(n^2)로 성능은 좋은 편이 아니다.**
 
